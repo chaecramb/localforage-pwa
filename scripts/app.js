@@ -51,8 +51,13 @@
     var key = selected.value;
     var label = selected.textContent;
     // TODO init the app.selectedCities array here
+    if (!app.selectedCities) {
+      app.selectedCities = [];
+    }
     app.getForecast(key, label);
     // TODO push the selected city to the array and save here
+    app.selectedCities.push({key: key, label: label});
+    app.saveSelectedCities();
     app.toggleAddDialog(false);
   });
 
@@ -339,6 +344,6 @@
     ];
     app.saveSelectedCities();
   }
-  
+
   // TODO add service worker code here
 })();

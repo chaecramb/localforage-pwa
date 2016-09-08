@@ -327,10 +327,10 @@
    ************************************************************************/
 
   localforage.getItem('selectedCities', function(err, value){
-    app.selectedCities = JSON.parse(value);
+    app.selectedCities = value;
 
     if (app.selectedCities) {
-      // app.selectedCities = JSON.parse(app.selectedCities);
+      app.selectedCities = JSON.parse(app.selectedCities);
       app.selectedCities.forEach(function(city) {
         app.getForecast(city.key, city.label);
       });
